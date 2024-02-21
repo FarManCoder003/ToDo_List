@@ -14,15 +14,17 @@ add.addEventListener("click", () => {
 });
 
 update.addEventListener("click", () => {
-  data[id] = input.value;
-  addtodo();
-  input.value = "";
+  if (input.value) {
+    data[id] = input.value;
+    addtodo();
+    input.value = "";
+  }
 });
 
 function addtodo() {
   list.innerHTML = "";
   data.map((item) => {
-    list.innerHTML += `<li>${item} <button class="delete">delete</button><button class="edit">edit</button></li>`;
+    list.innerHTML += `<li>${item} <button class="edit">edit</button> <button class="delete">delete</button></li>`;
   });
   let deletesingle = document.querySelectorAll(".delete");
   let edit = document.querySelectorAll(".edit");
